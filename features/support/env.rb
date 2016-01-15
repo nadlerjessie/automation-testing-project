@@ -80,3 +80,9 @@ module BootSelectionHelpers
   #   end
   # end
 end
+
+module NotifyMeHelpers
+  def steel_boot_path
+    'http://www.zappos.com/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow'
+  end
+end
