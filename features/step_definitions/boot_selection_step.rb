@@ -11,7 +11,7 @@ When (/I select the steel boots/) do
 end
 
 Then (/^I will be on the Steel Shadow Sonic Yellow boot's page$/) do
-  # expect 
+  expect(current_url).to eq(steel_boot_path)
 end
 
 

@@ -12,7 +12,6 @@ end
 
 Then (/^The selections header only lists "Shoes", "Men", and "Boots"$/) do
   expect(page).to have_headers(['Shoes', 'Men', 'Boots'])
-  # page.should have_selection_headers(selection, ['Shoes', 'Men', 'Boots'])
   expect(page).to have_selection_header_count(3)
 end
 

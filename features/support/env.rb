@@ -28,6 +28,10 @@ module BootSelectionHelpers
   end
 
   def steel_boot_link
-    find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-gravel-stealth-gray-zombie-green']")
+    find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow']")
+  end
+
+  def steel_boot_path
+    'http://www.zappos.com/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow'
   end
 end
