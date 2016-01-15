@@ -10,7 +10,7 @@ When (/I select the steel boots/) do
   end
 end
 
-Then (/^I will be on the Steel Shadow Sonic Yellow boot's page$/) do
+Then (/^I will be on the Steel Shadow Sonic Yellow boot's page$/) do 
   expect(current_url).to eq(steel_boot_path)
 end
 
@@ -25,3 +25,8 @@ end
   #   When I look for the blue boots
   #   Then No selections will be found
   #   And I will stay on the current path
+
+    # Examples:
+    # | color |               page                  |
+    # | blue  |  Steel Shadow Sonic Yellow boot's   |
+    # | steel |              same web               |
