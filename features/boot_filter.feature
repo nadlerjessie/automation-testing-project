@@ -1,4 +1,4 @@
-@boots @highPriority
+@boots @highPriority @filter
 Feature: Boot Filter
 
   Scenario: Filter to find Under Armour Men's Boots

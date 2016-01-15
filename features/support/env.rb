@@ -2,26 +2,32 @@ require 'capybara/cucumber'
 
 Capybara.app_host = 'http://zappos.com'
 Capybara.default_driver = :selenium
+Capybara.javascript_driver = :webkit
 
-module NavigationAndSelectionHelpers
+module NavigationAndSelectionHeaderHelpers
+  def mens_boots
+    '/mens-boots~4'
+  end
+
   def mens_boots_section
-    page.find('a', :text => "Shop Men's").find(:xpath, '..').find(:xpath, '..')
-  end
-
-  def selections_header
-    page.find(:xpath, '//*[@id="breadCrumbs"]/div')
-  end
-
-  def accurate_selection_header_count?(num)
-    page.assert_selector('div.crumbList a', :count => num)
-  end
-
-  def check_content_for(selection, filters)
-    verification = filters.map {|filter| selection.has_content?(filter)}
-    !verification.include?(false)
+    find('a', :text => "Shop Men's").find(:xpath, '..').find(:xpath, '..')
   end
 
   def brand_filtering
-    page.find(:xpath, '//*[@id="FCTbrandnamefacetSelect"]')
+    find(:xpath, '//*[@id="FCTbrandnamefacetSelect"]')
+  end
+end
+
+module BootSelectionHelpers
+  def under_armour_path
+    '/mens-boots~4#!/shoes-under-armour-men-boots/CK_XARCz1wFaAtMSwAEC4gIEARgCCw.zso?t=shoes&s=isNew/desc/productPopularity/asc/'
+  end
+
+  def search_results
+    find(:xpath, '//*[@id="searchResults"]')
+  end
+
+  def steel_boot_link
+    find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-gravel-stealth-gray-zombie-green']")
   end
 end

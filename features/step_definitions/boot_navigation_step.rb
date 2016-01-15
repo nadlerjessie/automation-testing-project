@@ -1,4 +1,4 @@
-World(NavigationAndSelectionHelpers)
+World(NavigationAndSelectionHeaderHelpers)
 
 Given (/^I am on the Zappos home page$/) do
   visit('/')
@@ -11,8 +11,8 @@ When (/^I click Shop Men's > Boots$/) do
 end
 
 Then (/^The selections header only lists "Shoes", "Men", and "Boots"$/) do
-  selection = selections_header
-  check_content_for(selection, ["Shoes", "Men", "Boots"])
-  accurate_selection_header_count?(3)  
+  expect(page).to have_headers(['Shoes', 'Men', 'Boots'])
+  # page.should have_selection_headers(selection, ['Shoes', 'Men', 'Boots'])
+  expect(page).to have_selection_header_count(3)
 end
 
