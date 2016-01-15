@@ -85,4 +85,10 @@ module NotifyMeHelpers
   def steel_boot_path
     'http://www.zappos.com/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow'
   end
+  
+  def fill_form
+    fill_in "email", :with => "test@test.com"
+    select 'Cadet/Pirate Blue/Stoneleigh Taupe', from: 'emailSubscription.styleId'
+    select '8.5', from: 'dimensionValueIds'
+  end
 end
