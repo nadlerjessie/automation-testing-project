@@ -1,4 +1,4 @@
-@boots
+@boots @highPriority @navigation
 Feature: Boot Navigation
 
   Scenario: Navigate to Men's Boots on Zappos
