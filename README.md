@@ -3,7 +3,7 @@
 The purpose of this project is to use Cucumber, Capybara, RSpec and Selenium to automate a workflow of the Zappos website. 
 Positive and negative test cases are written for when shoes are available, as well as shoes that are no longer on the Zappos website.
 
-The workflow has 6 features and 9 scenarios, the feature and step definition files are labeled accordingly. The basic workflow is:
+The workflow has 6 features and 10 scenarios, the feature and step definition files are labeled accordingly. The basic workflow is:
 
 1) Navigate to Shop Men's > Boots on Zappos
 
