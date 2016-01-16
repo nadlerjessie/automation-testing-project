@@ -28,42 +28,26 @@ module BootSelectionHelpers
     find(:xpath, '//*[@id="searchResults"]')
   end
 
-  def steel_boot_link
-    find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow']")
-  end
-
-  def steel_boot_path
-    'http://www.zappos.com/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow'
-  end
-
   def dropdown_select(selection)
     select "Choose Men's #{selection}"
   end
 
-  def check_for_selector(color)
-    has_css?("a[@href*='/under-armour-ua-glenrock-mid-#{color}']")
+  def check_for_type(type) 
+    has_link?('UA Glenrock Mid', {href: boot_path(type)})
   end
 
   def boot_path(type)
-    path = type.downcase.gsub(' ','-')
-    "/under-armour-#{path}"
+    if type.include?('UA')
+      path = type.downcase.gsub(' ','-')
+      "/under-armour-#{path}"
+    else
+      under_armour_path
+    end
   end
 
-  def boot_link(color)
-    if color == 'steel'
-      find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow']")
-    elsif color == 'blue'
-      find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-cadet-pirate-blue-stoneleigh-taupe']")
-    end      
+  def boot_link(type)
+    find(:css, "a[href='#{boot_path(type)}']")     
   end
-
-  # def boot_path(path)
-  #   if path == "Steel Shadow Sonic Yellow boot's"
-  #     'http://www.zappos.com/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow'
-  #   elsif path == 'same web'
-  #     'http://www.zappos.com/mens-boots~4'
-  #   end
-  # end
 end
 
 module NotifyMeHelpers
