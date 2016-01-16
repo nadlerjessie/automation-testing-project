@@ -8,4 +8,4 @@ gem 'capybara'
 gem 'selenium-webdriver'
 gem 'rspec'
 gem 'capybara-webkit'
-gem 'pry'
+

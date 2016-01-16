@@ -5,7 +5,6 @@ Given (/^I am on a page for (.*) boots$/) do |type|
 end
 
 And (/^(.*) selection has been omitted$/) do |selection|
-  puts current_url
   dropdown_select(selection)
 end
 
