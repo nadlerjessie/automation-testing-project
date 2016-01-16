@@ -4,14 +4,17 @@ Given (/I am on the Zappos Men's Under Armour Boots page$/) do
   visit(under_armour_path)
 end
 
-When (/I select the steel boots/) do
+When (/I select the (.*) boots/) do |color|
+  
   within search_results do
-    steel_boot_link.click
+    if check_for_selector(color)
+      boot_link(color)
+    end
   end
 end
 
-Then (/^I will be on the Steel Shadow Sonic Yellow boot's page$/) do 
-  expect(current_url).to eq(steel_boot_path)
+Then (/^I will be on the (.*) page$/) do |page|
+  expect(current_url).to eq(boot_path(page))
 end
 
 

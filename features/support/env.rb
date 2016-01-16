@@ -1,4 +1,5 @@
 require 'capybara/cucumber'
+require 'pry'
 
 Capybara.app_host = 'http://zappos.com'
 Capybara.default_driver = :selenium
@@ -35,42 +36,26 @@ module BootSelectionHelpers
     'http://www.zappos.com/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow'
   end
 
-  def boots_with_multiple_widths_path
-    'http://www.zappos.com/under-armour-ua-speed-freek-bozeman-uniform-black-velocity'
+  def dropdown_select(selection)
+    select "Choose Men's #{selection}"
   end
 
-  def find_dropdown_selectors(number)
-    if number == '2'
-      ['d3', 'd4']
-    elsif number == '1'
-      ['d3']
-    end
-  end
-
-  def find_notifications(number)
-    if number == '2'
-      ['Please select a size', 'Please select a width']
-    elsif number == '1'
-      ['Please select a size']
-    end
+  def check_for_selector(color)
+    has_css?("a[@href*='/under-armour-ua-glenrock-mid-#{color}']")
   end
 
   def boot_path(type)
-    if type == 'UA Speed Freek Bozeman'
-      'http://www.zappos.com/under-armour-ua-speed-freek-bozeman-uniform-black-velocity'
-    elsif type == 'UA Glenrock Mid'
-      steel_boot_path
-    end
-        
+    path = type.downcase.gsub(' ','-')
+    "/under-armour-#{path}"
   end
 
-  # def boot_link(color)
-  #   if color == 'steel'
-  #     find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow']")
-  #   elsif color == 'blue'
-  #     has_no_selector?(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-cadet-pirate-blue-stoneleigh-taupe']")
-  #   end      
-  # end
+  def boot_link(color)
+    if color == 'steel'
+      find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow']")
+    elsif color == 'blue'
+      find(:xpath, "//a[@href='/under-armour-ua-glenrock-mid-cadet-pirate-blue-stoneleigh-taupe']")
+    end      
+  end
 
   # def boot_path(path)
   #   if path == "Steel Shadow Sonic Yellow boot's"
