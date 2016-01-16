@@ -6,9 +6,9 @@ Given (/^I am on the 'Notify Me' form$/) do
   @notify_window = windows.last
 end
 
-When (/^I fill out form$/) do
+When (/^I fill out form with (.*), (.*), and (.*)$/) do |email, color, size|
   page.within_window @notify_window do 
-    fill_form
+    fill_form(email, color, size)
   end
 end
 
@@ -25,12 +25,12 @@ Then (/^The page says, 'Thank You'$/) do
   end
 end
 
-And (/^Has content from form$/) do
+And (/^Has (.*), (.*), and (.*) from form$/) do |email, color, size|
   page.within_window @thank_you do 
-    expect(page).to have_content('test@test.com')
+    expect(page).to have_content(email)
     expect(page).to have_content('Under Armour')
     expect(page).to have_content('UA Glenrock Mid')
-    expect(page).to have_content('Cadet/Pirate Blue/Stoneleigh Taupe')
-    expect(page).to have_content('8.5')   
+    expect(page).to have_content(color)
+    expect(page).to have_content(size)   
   end  
 end

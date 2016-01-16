@@ -54,9 +54,9 @@ module NotifyMeHelpers
     'http://www.zappos.com/under-armour-ua-glenrock-mid-steel-shadow-sonic-yellow'
   end
   
-  def fill_form
-    fill_in "email", :with => "test@test.com"
-    select 'Cadet/Pirate Blue/Stoneleigh Taupe', from: 'emailSubscription.styleId'
-    select '8.5', from: 'dimensionValueIds'
+  def fill_form(email, color, size)
+    fill_in "email", :with => email
+    select color, from: 'emailSubscription.styleId'
+    select size, from: 'dimensionValueIds'
   end
 end
